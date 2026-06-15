@@ -51,107 +51,74 @@ class Client extends BaseClient
     }
 
     /**
-     * 获取图文群发每日数据.
+     * 获取发表内容概况总数据.
      *
      * @param string $from 获取数据的起始日期
      * @param string $to 获取数据的结束日期
      * @return array
      * @throws HttpException
      */
-    public function articleSummary(string $from, string $to)
+    public function bizSummary(string $from, string $to)
     {
         $data = [
             'begin_date' => $from,
             'end_date' => $to,
         ];
-        return $this->post('/datacube/getarticlesummary', $data);
+        return $this->post('/datacube/getbizsummary', $data);
     }
 
     /**
-     * 获取图文群发总数据.
+     * 获取发表内容发表详细数据.
      *
      * @param string $from 获取数据的起始日期
      * @param string $to 获取数据的结束日期
      * @return array
      * @throws HttpException
      */
-    public function articleTotal(string $from, string $to)
+    public function articleTotalDetail(string $from, string $to)
     {
         $data = [
             'begin_date' => $from,
             'end_date' => $to,
         ];
-        return $this->post('/datacube/getarticletotal', $data);
+        return $this->post('/datacube/getarticletotaldetail', $data);
     }
 
     /**
-     * 获取图文统计数据.
+     * 获取发表内容每日阅读数据.
      *
      * @param string $from 获取数据的起始日期
      * @param string $to 获取数据的结束日期
      * @return array
      * @throws HttpException
      */
-    public function userReadSummary(string $from, string $to)
+    public function articleRead (string $from, string $to)
     {
         $data = [
             'begin_date' => $from,
             'end_date' => $to,
         ];
-        return $this->post('/datacube/getuserread', $data);
+        return $this->post('/datacube/getarticleread', $data);
     }
 
     /**
-     * 获取图文统计分时数据.
+     * 获取发表内容每日分享数据.
      *
      * @param string $from 获取数据的起始日期
      * @param string $to 获取数据的结束日期
      * @return array
      * @throws HttpException
      */
-    public function userReadHourly(string $from, string $to)
+    public function articleShare(string $from, string $to)
     {
         $data = [
             'begin_date' => $from,
             'end_date' => $to,
         ];
-        return $this->post('/datacube/getuserreadhour', $data);
+        return $this->post('/datacube/getarticleshare', $data);
     }
 
-    /**
-     * 获取图文分享转发数据.
-     *
-     * @param string $from 获取数据的起始日期
-     * @param string $to 获取数据的结束日期
-     * @return array
-     * @throws HttpException
-     */
-    public function userShareSummary(string $from, string $to)
-    {
-        $data = [
-            'begin_date' => $from,
-            'end_date' => $to,
-        ];
-        return $this->post('/datacube/getusershare', $data);
-    }
-
-    /**
-     * 获取图文分享转发分时数据.
-     *
-     * @param string $from 获取数据的起始日期
-     * @param string $to 获取数据的结束日期
-     * @return array
-     * @throws HttpException
-     */
-    public function userShareHourly(string $from, string $to)
-    {
-        $data = [
-            'begin_date' => $from,
-            'end_date' => $to,
-        ];
-        return $this->post('/datacube/getusersharehour', $data);
-    }
-
+    
     /**
      * 获取消息发送概况数据.
      *
